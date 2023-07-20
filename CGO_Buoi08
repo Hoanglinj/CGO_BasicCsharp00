@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CGO_Buoi08uu
+{
+    public class Person
+    {
+        private string name;
+
+        public Person(string name = "hoten")
+        {
+            Console.WriteLine("Tao moi person! {0}", name);
+            this.name = name;
+        }
+        public virtual void getName() { Console.WriteLine("Name: {0}", name); }
+    }
+    public class Citizen : Person
+    {
+        private string location;
+
+        public Citizen(string name = "hoten", string location = "diadiem") : base(name)
+        {
+            Console.WriteLine("Tao moi citizen! {0} {1}", name, location);
+            this.location = location;
+        }
+
+        public void getLocation() { Console.WriteLine("Location: {0}", location); }
+    }
+    public class Student : Citizen
+    {
+        public int age;
+        public Student(string name = "hoten", string location = "diadiem", int age = 1) : base(name, location)
+        {
+            Console.WriteLine("Tao moi student!");
+            this.age = age;
+        }
+        public void getAge() { Console.WriteLine("Tuoi la: {0}", age); }
+        public override void getName()
+        {
+            base.getName();
+        }
+
+        //public override void getName() { Console.WriteLine("Ten la: {0}", name); }
+    }
+
+    public class HCN
+    {
+        private double dai, rong;
+        public HCN(double _dai = 0, double _rong = 0)
+        {
+            dai = _dai; rong = _rong;
+        }
+        public double getArea() { return dai * rong; }
+        public void Print() { Console.WriteLine("DT= {0}", getArea()); }
+        public double getDai() { return dai; }
+        public override string ToString()
+        {
+            return string.Format("HCN co dien tich = {0}", getArea());
+        }
+    }
+    public class HV : HCN
+    {
+        private double canh;
+        public HV(double _canh = 1) : base(_canh, _canh)
+        {
+
+            canh = _canh;
+        }
+        public override string ToString()
+        {
+            return string.Format("HV co dien tich = {0}", getArea());
+            //return base.ToString();
+        }
+    }
+
+
+    public class Shape
+    {
+        private String color = "green";
+        private bool filled = true;
+        public Shape(String color = "green", bool filled = true)
+        {
+            this.color = color;
+            this.filled = filled;
+        }
+
+        public String GetColor() { return color; }
+        public void SetColor(String color) { this.color = color; }
+        public bool IsFilled() { return filled; }
+        public void SetFilled(bool filled) { this.filled = filled; }
+
+        public override String ToString()
+        {
+            return "A Shape with color of " + GetColor() + " and "
+                    + (IsFilled() ? "filled" : "not filled");
+        }
+    }
+    public class Circle : Shape
+    {
+        private double radius;
+        public Circle(double _radius) : base()
+        {
+            radius = _radius;
+        }
+    }
+
+}
