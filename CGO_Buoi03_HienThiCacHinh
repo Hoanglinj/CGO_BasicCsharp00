@@ -1,0 +1,181 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CGO_Buoi03_HienThiCacHinh
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int choice = -1;
+            while (choice != 0)
+            {
+                Console.WriteLine("Menu");
+                Console.WriteLine("1. Print the rectangle");
+                Console.WriteLine("2. Print the square triangle");
+                Console.WriteLine("3. Print isosceles triangle");
+                Console.WriteLine("0. Exit");
+                Console.WriteLine("Enter your choice: ");
+                choice = Int32.Parse(Console.ReadLine());
+                int i, j;
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Nhap chieu dai m: ");
+                        int m = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Nhap chieu rong n: ");
+                        int n = Convert.ToInt32(Console.ReadLine());
+
+                        if(m > 0 && n > 0)
+                        {
+                            for (int i = 1;i <= m; i++)
+                            {
+                                for (int j = 1; j <= n; j++)
+                                {
+                                    Console.Write("*");
+                                }
+                                Console.WriteLine();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nhap m, n > 0");
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("1. Hinh tam giac vuong goc phai tren");
+                        Console.WriteLine("2. Hinh tam giac vuong goc phai duoi");
+                        Console.WriteLine("3. Hinh tam giac vuong goc trai tren");
+                        Console.WriteLine("4. Hinh tam giac vuong goc trai duoi");
+                        switch (choice)
+                        {
+                            case 1:
+                                Console.WriteLine("Nhap h: ");
+                                int h = Convert.ToInt32(Console.ReadLine());
+
+                                if(h > 0)
+                                {
+                                    for (int j = 1; j <= h; j++)
+                                    {
+                                        if (j <= (h - i))
+                                        {
+                                            Console.Write("  ");
+                                        }
+                                        else 
+                                        { 
+                                            Console.WriteLine(" * "); 
+                                        }
+                                    }
+                                    Console.WriteLine("\n");
+                                        
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Nhap chieu cao h > 0");
+                                }
+                            break;
+                             case 2:
+                                Console.WriteLine("Nhap h: ");
+                                
+
+                                if (h > 0)
+                                {
+                                    for (int i = 1; 1 <= h; i++)
+                                    {
+                                        for (int j = 1; j <= h; j++)
+                                        {
+                                            if(j <= h - i)
+                                            {
+                                                Console.Write("  ");
+                                            }
+                                            else
+                                            {
+                                                Console.Write(" * ");
+                                            }
+                                        }
+                                        Console.WriteLine("\n");
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Nhap chieu cao > 0.");
+                                }
+                             break;
+                             case 3:
+                                Console.WriteLine("Nhap h: ");
+                                if(h > 0)
+                                {
+                                    for (int i = h; i >= 1; i--)
+                                    {
+                                        for (int j = 1; j <= i; j++)
+                                        {
+                                            Console.Write(" * ");
+                                        }
+                                        Console.WriteLine("\n");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Nhap chieu cao > 0");
+                                }
+                             break;
+                             case 4:
+                                Console.WriteLine("Nhap chieu cao h: ");
+
+                                if(h > 0)
+                                {
+                                    for (int i = 1; i <= h; i++)
+                                    {
+                                        for (int j = 1; j <= i; j++)
+                                        {
+                                            Console.Write("*");
+                                        }
+                                        Console.WriteLine();
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Nhap gia tri h > 0");
+                                }
+                             break;
+                               
+                                
+                        }
+                        break;
+                    case 3:
+                       
+
+                        Console.Write("\n");
+                        Console.Write("Ve tam giac can:\n");
+                        Console.Write("\n\n");
+                        Console.Write("Nhap so hang: ");
+                        n = Convert.ToInt32(Console.ReadLine());
+                        for (i = 0; i < n; i++)
+                        {
+                            for (j = 1; j <= n - i; j++)
+                                Console.Write(" ");
+                            for (j = 1; j <= 2 * i - 1; j++)
+                                Console.Write("*");
+                            Console.Write("\n");
+                        }
+                        break;
+                    case 0:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("No choice!");
+                        break;
+                }
+
+            }
+            Console.ReadKey();
+        }
+    }
+    
+}
